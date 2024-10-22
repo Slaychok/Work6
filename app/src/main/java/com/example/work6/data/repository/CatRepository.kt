@@ -8,8 +8,11 @@ import kotlinx.coroutines.withContext
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import javax.inject.Inject
 
-class CatRepository(private val catDao: CatDao, private val catApi: CatApi) {
+class CatRepository @Inject constructor(
+    private val catDao: CatDao, private val catApi: CatApi
+) {
 
     fun fetchCatFromApi(callback: (Result<List<Cat>>) -> Unit) {
         catApi.getCat().enqueue(object : Callback<List<Cat>> {
