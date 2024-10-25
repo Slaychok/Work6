@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.work6.R
@@ -38,6 +39,20 @@ class CatFragment : Fragment() {
                     .placeholder(R.drawable.gear_spinner)
                     .error(R.drawable.error)
                     .into(binding.catImageView)
+            }
+        }
+
+        catViewModel.catImageUrl.observe(viewLifecycleOwner) { url ->
+            if (url != null) {
+                catViewModel.downloadAndSaveImage(url)
+            }
+        }
+
+        catViewModel.saveResult.observe(viewLifecycleOwner) { success ->
+            if (success) {
+                Toast.makeText(context, "Изображение успешно сохранено!", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(context, "Ошибка при сохранении изображения", Toast.LENGTH_SHORT).show()
             }
         }
 

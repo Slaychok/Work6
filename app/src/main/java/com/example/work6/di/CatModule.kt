@@ -44,7 +44,7 @@ object CatModule {
 
     @Provides
     @Singleton
-    fun provideCatRepository(catDao: CatDao, catApi: CatApi): CatRepository {
-        return CatRepository(catDao, catApi)
+    fun provideCatRepository(catDao: CatDao, catApi: CatApi,  @ApplicationContext context: Context): CatRepository {
+        return CatRepository(catDao, catApi, context)
     }
 }

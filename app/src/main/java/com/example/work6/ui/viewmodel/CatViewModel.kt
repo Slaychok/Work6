@@ -9,10 +9,10 @@ import javax.inject.Inject
 @HiltViewModel
 class CatViewModel @Inject constructor(
     private val repository: CatRepository
-) : ViewModel() {
-
+): ViewModel() {
     val catImageUrl = MutableLiveData<String>()
     val error = MutableLiveData<String>()
+    val saveResult = MutableLiveData<Boolean>()
 
     fun fetchCat() {
         repository.fetchCatFromApi { result ->
@@ -40,6 +40,13 @@ class CatViewModel @Inject constructor(
             } else {
                 error.postValue("No cat in database")
             }
+        }
+    }
+
+    fun downloadAndSaveImage(url: String) {
+        viewModelScope.launch {
+            val success = repository.downloadAndSaveImage(url)
+            saveResult.postValue(success)
         }
     }
 }
