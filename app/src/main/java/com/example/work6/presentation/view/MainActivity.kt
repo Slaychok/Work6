@@ -1,4 +1,4 @@
-package com.example.work6.ui.view
+package com.example.work6.presentation.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

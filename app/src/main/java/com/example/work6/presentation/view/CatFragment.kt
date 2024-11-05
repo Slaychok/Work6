@@ -1,4 +1,4 @@
-package com.example.work6.ui.view
+package com.example.work6.presentation.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.work6.R
 import com.example.work6.databinding.FragmentCatBinding
-import com.example.work6.ui.viewmodel.CatViewModel
+import com.example.work6.presentation.viewmodel.CatViewModel
 import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -55,8 +55,6 @@ class CatFragment : Fragment() {
                 Toast.makeText(context, "Ошибка при сохранении изображения", Toast.LENGTH_SHORT).show()
             }
         }
-
-        catViewModel.loadCatFromDb()
 
         binding.catBtn.setOnClickListener {
             catViewModel.fetchCat()

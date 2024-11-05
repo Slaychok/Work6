@@ -6,6 +6,6 @@
 
     <fragment
         android:id="@+id/catFragment"
-        android:name="com.example.work6.ui.view.CatFragment"
+        android:name="com.example.work6.presentation.view.CatFragment"
         android:label="CatFragment" />
 </navigation>

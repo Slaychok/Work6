@@ -20,7 +20,6 @@ class CatRepository @Inject constructor(
     private val catApi: CatApi,
     private val context: Context
 ) {
-    // Сохранение изображения из URL во внутреннюю память
     suspend fun downloadAndSaveImage(url: String): Boolean {
         return withContext(Dispatchers.IO) {
             try {
@@ -37,7 +36,6 @@ class CatRepository @Inject constructor(
         }
     }
 
-    // Сохранение изображения в файл во внутреннюю память
     private fun saveImageToInternalStorage(body: ResponseBody): Boolean {
         return try {
             val file = File(context.filesDir, "cat_image.png")  // Путь для сохранения

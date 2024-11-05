@@ -1,6 +1,8 @@
-package com.example.work6.ui.viewmodel
+package com.example.work6.presentation.viewmodel
 
-import androidx.lifecycle.*
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.work6.data.repository.CatRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

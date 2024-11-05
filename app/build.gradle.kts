@@ -29,11 +29,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "11"
     }
     buildFeatures{
         viewBinding = true
@@ -55,6 +55,7 @@ dependencies {
 
     implementation(libs.retrofit)
     implementation(libs.gson)
+    implementation("com.squareup.okhttp3:okhttp:4.10.0") // Обновленный OkHttp
     implementation(libs.converter.gson)
     implementation(libs.picasso)
     implementation(libs.androidx.room.runtime)
@@ -62,6 +63,15 @@ dependencies {
     implementation(libs.androidx.room.ktx)
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
+    // JUnit
+    testImplementation("junit:junit:4.13.2")
+    // Coroutines Test
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+    // Mockito
+    testImplementation("org.mockito:mockito-core:5.5.0")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:5.1.0")
+    // Android Test Core (если нужны Context и другие зависимости Android)
+    testImplementation("androidx.test:core:1.5.0")
 }
 
 kapt {
