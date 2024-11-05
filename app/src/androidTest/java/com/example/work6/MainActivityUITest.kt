@@ -6,7 +6,6 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import com.example.work6.presentation.view.MainActivity
-import org.hamcrest.Matchers.not
 import org.junit.Rule
 import org.junit.Test
 
